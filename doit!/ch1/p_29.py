@@ -3,6 +3,9 @@ a= int(input("a값입력"))
 b= int(input("b값입력"))
 c= int(input("c값입력"))
 
+
+
+
 if a>b:
     a,b=b,a                     #오름차순 정렬
 
