@@ -41,3 +41,6 @@
 8.  d도 list, dat1 도 list면
     d+=dat1[k] 는 append처럼 붙음! 인덱스나 슬라이스 그런것 붙는거 가능
 
+
+9.  range(n)은 마지막에 n빼고!
+    randint(a,b)는 a이상 b포함임!
