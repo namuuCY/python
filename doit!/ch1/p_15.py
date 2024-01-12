@@ -1,7 +1,8 @@
 
 n=int(input())
 data=list( map(int, input().split()[:n]))     #n개만 입력받는것. :n이면 n-1 값까지만 슬라이스 n:면 이것도 나름 객관적 a:b면 a값, 즉 a+1번째칸부터 b번째칸까지
-print(data)
+data.sort()
+print(data[1])
 
 def max3(a1,b1,c1):
     maxa=a1
