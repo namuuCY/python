@@ -8,5 +8,12 @@ def max_of(a:Sequence) -> Any:
             maximum=a[i]
     return maximum
 
-if __name__=='__main__':
-    print 
+if __name__=='__main__':                # 이거는 C에서 헤더쓸때 충돌방지하려고 두는거랑 비슷한느낌?
+    print('배열의 최댓값')
+    num=int(input('원소의 수?'))
+    x=[None]*num
+
+    for i in range(num):
+        x[i]=int(input(f'x[{i}]의 값을 입력하세요.'))
+    
+    print(f'최댓값은 {max_of(x)}')

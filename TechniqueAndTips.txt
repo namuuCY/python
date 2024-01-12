@@ -24,3 +24,15 @@
 
 
 6.      type(--)은 자료형 확인
+
+
+7.      if __name__=='__main__':
+        그니까 결국 현재 돌리고 있는 스크립트에서 __name__은 __main__이 뜨는게 맞지?
+        예시)
+        만약 내가 module.py에 있는 function함수를 쓰고싶어서 
+        현재돌리는 스크립트에서 from module import function를 선언했다고 치자. 
+        
+        그런데 module.py에 __name__이 있는데 
+        파이썬은 모듈또한 객체라 
+        현재 스크립트에서 구동한다면 
+        module라는 객체는 main이 아니라 module으로 뜬다는거지?
