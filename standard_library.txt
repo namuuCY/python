@@ -1,0 +1,17 @@
+1. 내장함수
+
+2. itertools : 
+    순열        permutations(data,n) 
+    조합        combinations(data,n)
+    중복순열    product(data, repeat=n)     n번 중복해서 뽑는 경우
+    중복조합    combinations_with_replacement(data,n)   n개를 중복허용해서 뽑는 조합
+
+3. heapq :
+
+4. bisect : 이분탐색, 이진탐색
+
+5. collection :
+
+6. copy : 깊은 복사 (복사하고 원본 변형시켜도 안똑같아지는 복사) 가능
+
+7. ??? typing 이건 python 3.5부터 된다는 거라 확인해봐야알듯?

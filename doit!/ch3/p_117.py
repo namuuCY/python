@@ -1,14 +1,16 @@
 from typing import Any, Sequence
+import copy
 
-def seq_searching(a:Sequence, key:Any) -> int:
+def seqsearch(seq:Sequence, key:Any) -> int:
+    a=copy.deepcopy(seq)
+    a.append(key)
+
     i=0
-
     while True:
-        if i==len(a):
-            return -1
         if a[i]==key:
-            return i
+            break
         i+=1
+    return -1 if i==len(seq) else i
 
 if __name__=='__main__':
     num=int(input('원소 수를 입력하세요: '))
@@ -19,7 +21,7 @@ if __name__=='__main__':
     
     ky= int(input('검색할 값은? : '))
 
-    idx=seq_searching(x, ky)
+    idx=seqsearch(x, ky)
 
     if idx==-1:
         print('검색값을 찾는 원소가 없음')
