@@ -8,7 +8,7 @@ for _ in range(n):
     if r==13:
         print("\n 프로그램을 중단합니다")
         break
-else:
+else:                               #for 구문에 break 있는거 있을때 좋음
     print("\n 난수 생성 종료")
 
 
