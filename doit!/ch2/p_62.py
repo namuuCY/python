@@ -1,10 +1,13 @@
-b=3,                #이렇게 쓰면 튜플로 설정된거라 append 불가능
 
-a=[1,2,3,4]
-a.append(5)
-b.append(4)
+print(type((1,2,3)))
 
-print(b)
+print(id([1,2,3]))
+print(id([1,2,3,4]))
+print(id([1,2,3,5]))
+
+#   b=3,                #이렇게 쓰면 b는 튜플로 설정된거라 append 불가능
+
+
 
 
 
