@@ -14,7 +14,7 @@ sum=0
 
 for i in range(a,b+1):
     if i<b:
-        print(f"{i}+",end='')              #range(n)은 그자체로 시퀀스가 아님
+        print(f"{i}+",end='')              #range(n)은 그자체로 리스트가 아님
     else:                                       #range (n)은 0부터 n-1까지만 보여줌
         print(f"{i}=", end='')
     sum+=i                      
