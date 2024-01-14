@@ -63,3 +63,20 @@ class FixedQueue:
         c=0
         for i in range(self.no):
             idx=( i + self.front ) % self.capacity
+            if self.que[idx] == value:
+                c += 1
+        return c
+    
+    def __contains__(self, value: Any) -> bool:
+        return self.count(value)
+    
+    def clear(self) -> None:
+        self.no = self.front = self.reat = 0
+
+    def dump(self) -> None:
+        if self.is_empty():
+            print('큐가 비었습니다.')
+        else:
+            for i in range(self.no):
+                print(self.que[(i + self.front) % self.capacity], end='')
+            print()
