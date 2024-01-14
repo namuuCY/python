@@ -1,3 +1,16 @@
+class Bird:
+    def fly(self):
+        raise NotImplementedError
+    
+class Eagle(Bird):
+    def fly(self):
+        print('super fast')
+
+eagle1=Eagle()
+eagle1.fly()
+
+
+
 a=[1,2,3,4,5,6,6]
 print(a[:2])        # 신기하다 이건 인덱스 2를 포함안하는데
 print(a[2:])        # 이건 인덱스 2를 포함함
