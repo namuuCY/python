@@ -35,11 +35,11 @@ class FixedQueue:
         if self.rear==self.capacity:
             self.rear=0
 
-    def deque(self, x:Any) -> None:
+    def deque(self) -> None:
 
         if self.is_empty():
             raise FixedQueue.Empty
-        x=self.que[self.front]
+        x = self.que[self.front]
         self.front += 1
         self.no -= 1
         if self.front == self.capacity:

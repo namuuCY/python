@@ -29,7 +29,7 @@ while True:
 
     elif menu == Menu.디큐:
         try:
-            x=q.deque()
+            x = q.deque()
             print(f'디큐한 데이터는 {x}입니다. ')
         except FixedQueue.Empty:
             print('큐가 비어 있습니다.')
