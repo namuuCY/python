@@ -20,7 +20,7 @@ def shaker_sort(a: MutableSequence) -> None:
         right = last
 
 if __name__=='__main__':
-    print('버블정렬 실행')
+    print('셰이커정렬 실행')
     num = int(input('원소 수를 입력하세요. '))
     x = [None] * num
 
