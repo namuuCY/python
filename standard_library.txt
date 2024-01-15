@@ -11,6 +11,12 @@
 4. bisect : 이분탐색, 이진탐색, 이진 삽입 정렬( insort() )
 
 5. collection : deque<- 이거로 stack만들수 있음.
+                deque<- 이거로 stack만들수 있음.
+                deque<- 이거로 stack만들수 있음.
+                deque<- 이거로 stack만들수 있음.
+                deque<- 이거로 stack만들수 있음.
+                deque<- 이거로 stack만들수 있음.
+                deque<- 이거로 stack만들수 있음.
 
 6. copy : 깊은 복사 (복사하고 원본 변형시켜도 안똑같아지는 복사) 가능
 
