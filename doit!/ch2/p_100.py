@@ -1,15 +1,17 @@
 #두번째 방법
-counter=0
+
 pn=[2,3]
 
 for n in range(5,1001,2):
-    for i in range(len(pn)) :
-        counter+=1
+    i = 0
+    while pn[i] * pn[i] <= n:           # 어떤 조건을 걸고
         if n % pn[i] == 0:
             break
+        i += 1
     else:
-        pn.append(n)
+        pn.append(n)                    # 저 조건을 충족하지 않으면 등록
+    
 
 print(pn)
-print(counter)
+
         
