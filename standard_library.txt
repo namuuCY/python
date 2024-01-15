@@ -8,7 +8,7 @@
 
 3. heapq :
 
-4. bisect : 이분탐색, 이진탐색
+4. bisect : 이분탐색, 이진탐색, 이진 삽입 정렬( insort() )
 
 5. collection : deque<- 이거로 stack만들수 있음.
 
