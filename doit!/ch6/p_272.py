@@ -29,4 +29,33 @@ def qsort(a: MutableSequence, left: int, right: int) -> None:
         pl += 1
         pr -= 2
         while pl <= pr:
-            while a[pl]
+            while a[pl] < x: pl += 1
+            while a[pr] > x: pr -= 1
+            if pl <= pr:
+                a[pl], a[pr] = a[pr], a[pl]
+                pl += 1
+                pr -= 1
+        
+        if left < pr: qsort(a, left, pr)
+        if pl < right: qsort(a, pl, right)
+
+
+def quick_sort(a: MutableSequence) -> None:
+
+    qsort(a, 0, len(a) - 1)
+
+
+if __name__ == '__main__':
+    print('퀵 정렬을 합니다.(원소 수가 9 미만일 경우, 단순삽입정렬) ')
+    num = int(input('원소 수를 입력하세요. : '))
+    x = [None] * num
+
+    for i in range(num):
+        x[i] = int(input(f'x[{i}] = '))
+
+    quick_sort(x)
+
+    for i in range(num):
+        print(f'x[{i}] = {x[i]}')
+
+        
