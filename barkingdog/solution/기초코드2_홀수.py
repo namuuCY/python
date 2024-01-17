@@ -7,4 +7,8 @@ for i in range(7):
         x.append(y)
 
 x.sort()
-print(sum(x), x[0], sep='\n')
+
+if sum(x) == 0:
+    print(-1)
+else:
+    print(sum(x), x[0], sep='\n')
