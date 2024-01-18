@@ -10,10 +10,10 @@ def reverse(x: MutableSequence, a: int, b: int) -> None:
     
  
 read = sys.stdin.readline
-x = list(range(1, 21))
+x = list(range(1, 21))                                      # range는 리스트가 아니다! 리스트나 튜플화를 꼭 해줘야함
 matrix = [list(map(int, read().split())) for _ in range(10)]
 
 for i in range(10):
-    reverse(x, matrix[i][0], matrix[i][1])
+    reverse(x, matrix[i][0], matrix[i][1])                  # 내가 원래 생각했던 함수가 뭔지 잊지말자.
 
 print(*x, sep = ' ')
