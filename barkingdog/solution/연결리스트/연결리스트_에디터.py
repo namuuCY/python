@@ -29,6 +29,9 @@ for i in range(n):
         if idx == len(ans):
             ans.append(flist[1])
             idx += 1
+        elif idx == 0:
+            ans.appendleft(flist[1])
+            idx += 1
         else:
             ans.insert(idx, flist[1])
             idx += 1
