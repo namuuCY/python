@@ -13,7 +13,11 @@ def erase(idx: int, a: MutableSequence) -> MutableSequence:
 
     
 
+c = [[0]*4 for _ in range(5)]
 
+c[1][2] = 1
+
+print(c)
 a= [1,2,3,4,5,7,8,9]
 
 insert(6, 5, a)
