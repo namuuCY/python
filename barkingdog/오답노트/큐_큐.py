@@ -4,7 +4,7 @@ import sys
 n = int(sys.stdin.readline().rstrip())
 data = deque()
 for _ in range(n):
-    order = list(map(str, sys.stdin.readline().split()))
+    order = sys.stdin.readline().split()
     if order[0] == 'push':
         data.append(int(order[1]))
     elif order[0] == 'pop':         # 더 줄일수있음
