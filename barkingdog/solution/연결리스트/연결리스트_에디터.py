@@ -22,7 +22,7 @@ for i in range(n):
 
     elif flist[0] == 'B':
         if idx > 0:
-            ans.remove(ans[idx - 1])
+            del ans[idx - 1]
             idx -= 1
 
     elif flist[0] == 'P':
