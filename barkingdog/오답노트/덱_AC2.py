@@ -7,7 +7,7 @@ for _ in range(tn):
     rcount = 0
     order = str(sys.stdin.readline().rstrip())
     n = int(sys.stdin.readline().rstrip())
-    data = deque(json.loads(sys.stdin.readline().rstrip()))
+    data = deque(json.loads(sys.stdin.readline().rstrip()))     #json함수의 활용법
     for i in range(len(order)):
         if order[i] == 'R':
             rcount += 1

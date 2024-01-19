@@ -12,7 +12,7 @@ for _ in range(n):
     while cnt <= t:
         Seq.append(cnt)
         cnt += 1
-        ans = '\n'.join([ans, '+'])
+        ans = '\n'.join([ans, '+'])         # join함수의 활용법 
     if Seq[-1] != t:
         print("NO")
         sys.exit(0)
