@@ -12,14 +12,13 @@ for _ in range(n):
 towers.reverse()
 
 for i in range(n):
-    while stk[-1][1] >= towers[i]:
+    while stk[-1][1] < towers[i]:
+        stk.pop()
+    else:
         count.append(i - stk[-1][0])
         stk.append((i + 1, towers[i]))
-        break
-    else:
-        stk.pop()
-
-print(count)        
+        
+             
 print(sum(count))
 
 
