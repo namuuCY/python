@@ -6,8 +6,8 @@
     중복순열    product(data, repeat=n)     n번 중복해서 뽑는 경우
     중복조합    combinations_with_replacement(data,n)   n개를 중복허용해서 뽑는 조합
 
-3. heapq, queue : 중요중요!!!!!!!!!!!
-3. heapq, queue : 중요중요!!!!!!!!!!!
+3. heapq : 중요중요!!!!!!!!!!!
+3. heapq : 중요중요!!!!!!!!!!!
 
 4. bisect : 이분탐색, 이진탐색, 이진 삽입 정렬( insort() )
 
