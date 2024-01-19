@@ -4,7 +4,7 @@ import sys
 
 topstk = deque()        # 0은 인덱스, 1은 탑길이
 
-n = int(sys.stdin.readline().rstrip())
+n = int(sys.stdin.readline().rstrip())      # n이 짧은 한 정수일경우에는 그냥 input받자?
 ans = [0] * n
 toplen = list(map(int, sys.stdin.readline().split()))
 
