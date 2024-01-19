@@ -2,11 +2,8 @@ from collections import deque
 import sys, json
 
 
-a = [1,2,3,4]
+a= (sys.stdin.readline().rstrip())
 
+b= eval(a)
 
-
-
-b = deque(a)
-b.append([10])
 print(b)
