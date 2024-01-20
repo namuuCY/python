@@ -1,17 +1,31 @@
-import sys
+import sys, math
 
 m, n = list(map(int, sys.stdin.readline().split()))
 ans = []
 
-if m % 2 == 0 and n % 2 == 0:
-    if m == 2:
-        ans.append(2)
-    for i in range(m + 1, n + 1, 2):
-        while 
+if m <= 2:
+    ans.append(2)
 
+num = max(3, m)
 
-elif m % 2 == 1 and n % 2 == 0:
+if num % 2 == 0:
+    for i in range(num + 1, n + 1, 2):
+        is_prime = True
+        for j in range(2, int(math.sqrt(i)) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            ans.append(i)
 
-elif m % 2 == 0 and n % 2 == 1:
+else:
+    for i in range(num, n + 1, 2):
+        is_prime = True
+        for j in range(2, int(math.sqrt(i)) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            ans.append(i)
 
-else: #m % 2 == 1 and n % 2 == 1
+print(*ans, sep = '\n')
