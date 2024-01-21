@@ -5,8 +5,8 @@
 # 문제 링크 : https://www.acmicpc.net/problem/13300
 
 import sys
-import math                                      # math 모듈의 ceil : 올림함수
-
+import math                                     # math 모듈의 ceil : 올림함수
+                                                # ceil은 올림함수, round는 반올림, int는 내림
 
 data = sys.stdin.readline().rstrip()            # readline 과 readlines가 있음 
 people, room = list(map(int, data.split()))           # 전자는 한줄만, 후자는 여러줄 몽땅 읽음

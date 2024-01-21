@@ -8,7 +8,7 @@ read = sys.stdin.readline
 
 
 cnt = [0] * 2000000                                     # 지금 백만 단위의 숫자 안에서 OX퀴즈 하는거라 100만보다 좀더 넉넉하게 잡을 필요 있음. 메모리 충분 8메가임
-ans = 0
+ans = 0                                                 # 512MB =  1.2억개의 int임을 명심
 n = int(sys.stdin.readline().rstrip())
 data = list(map(int, sys.stdin.readline().split()))
 x = int(sys.stdin.readline().rstrip())
