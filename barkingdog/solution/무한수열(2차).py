@@ -1,5 +1,2 @@
-from typing import Any
+from collections import deque
 
-class Stack:
-
-    

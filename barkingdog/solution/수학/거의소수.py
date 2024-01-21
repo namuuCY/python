@@ -8,7 +8,7 @@ count = 0
 print(A,B)
 if A <= 2:
     count += 1
-
+pns = []
 num = max(3, A)
 
 if A % 2 == 0:
@@ -19,6 +19,7 @@ if A % 2 == 0:
                 is_prime = False
                 break
         if is_prime:
+            pns.append(i)
             count += 1
 else:
     for i in range(A , B + 1, 2):
@@ -28,7 +29,9 @@ else:
                 is_prime = False
                 break
         if is_prime:
+            pns.append(i)
             count += 1
 
-print(count)
+for i in range(len(pns)):
+    for j in range():
 
