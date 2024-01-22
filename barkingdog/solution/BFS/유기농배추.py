@@ -5,7 +5,7 @@ dx = [1, 0, -1, 0]
 dy = [0, 1, 0, -1]
 
 for _ in range(trial):
-    n, m, k = map(int, input().split())
+    m, n, k = map(int, input().split())     # 또 가로 세로길이 인덱스에 당해버렸다
     board = [[0] * m for _ in range(n)]
     vis = [[False] * m for _ in range(n)]
     count = 0
@@ -24,7 +24,7 @@ for _ in range(trial):
                         nx, ny = x + dx[i], y + dy[i]
                         if 0 <= nx < n and 0 <= ny < m and not vis[nx][ny]:
                             vis[nx][ny] = True
-                            Q.append((nx,ny))
+                            Q.append((nx, ny))
                 count += 1
     print(count)
         
