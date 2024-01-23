@@ -9,11 +9,11 @@ g -= 1
 dir = [u, -d]
 Q.append(s)
 button[s] = 0
-is_possible = False
+#is_possible = False
 while Q:
     x = Q.popleft()
-    if button[x] == g:
-        is_possible = True
+    if x == g:      # x좌표....가 g여야지
+#        is_possible = True
         print(button[x])
         break
     for i in dir:
@@ -22,5 +22,8 @@ while Q:
             button[nx] = button[x] + 1
             Q.append(nx)
 
-if not is_possible:
-    print('use the stairs')
+if button[g] == -1:
+    print("use the stairs")
+
+#if not is_possible:
+#    print('use the stairs')
