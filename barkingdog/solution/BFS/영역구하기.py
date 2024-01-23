@@ -5,7 +5,7 @@ input = sys.stdin.readline
 
 def bfs(a: int, b: int) -> int:
     Q.append((a, b))
-    area = 0
+    area = 1
     while Q:
         x, y = Q.popleft()
         for d in range(4):
@@ -13,6 +13,7 @@ def bfs(a: int, b: int) -> int:
             if 0 <= nx < n and 0 <= ny < m and board[nx][ny] == 0:
                 Q.append((nx, ny))
                 board[nx][ny] = 1
+                area += 1
     return area
 
 m, n, k = list(map(int, input().split()))
@@ -26,6 +27,7 @@ for _ in range(k):
     for i in range(x1, x2):
         for j in range(y1, y2):
             board[i][j] = 1
+print(*board, sep = '\n')
 
 for x in range(n):
         for y in range(m):
@@ -34,6 +36,9 @@ for x in range(n):
                 area.append(bfs(x,y))
 area.sort()
 print(count)
+print()
+
+print(*board, sep = '\n')
 print(*area, sep = ' ')
 
 
