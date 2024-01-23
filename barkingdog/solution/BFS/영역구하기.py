@@ -27,18 +27,16 @@ for _ in range(k):
     for i in range(x1, x2):
         for j in range(y1, y2):
             board[i][j] = 1
-print(*board, sep = '\n')
+
 
 for x in range(n):
         for y in range(m):
             if board[x][y] == 0:
                 count += 1
+                board[x][y] = 1             # vis 함수를 안쓸거면 이거라도 제대로 마킹하셈
                 area.append(bfs(x,y))
 area.sort()
 print(count)
-print()
-
-print(*board, sep = '\n')
 print(*area, sep = ' ')
 
 
