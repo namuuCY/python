@@ -12,25 +12,27 @@ Q = deque()
 dist = [[-1]* m for _ in range(n)]
 Q.append((0, 0))
 dist[0][0] = 1
-breakable = True
-while Q:
-    x, y = Q.popleft()
-    if board[x][y] == 1:
-        breakable = False
-    for i in range(4):
-        nx, ny = x + dx[i], y + dy[i]
-        if nx < 0 or nx >= n or ny < 0 or ny >= m:
-            continue
-        if board[nx][ny] == 1 and breakable:
-            dist[nx][ny] = dist[x][y] + 1
-            Q.append((nx, ny))
-        elif board[nx][ny] == 0 and dist[nx][ny] == -1:
-            dist[nx][ny] = dist[x][y] + 1
-            Q.append((nx, ny))
 
-print(dist[n - 1][m - 1])
-
-            
+def bfs(x: int, y: int) -> None:        # x,y의 벽을깨고 bfs
+    board[x][y] = 0
+    Q.append((0, 0))
+    while Q:
+        x, y = Q.popleft()
+        for dir in range(4):
+            nx, ny = x + dx[dir] , y + dy[dir]
+            if 0 <= nx < n and 0 <= ny < m and board[nx][ny] == 0 and dist[nx][ny] > 0:
+                dist[nx][ny] = dist[x][y] + 1
+                Q.append((nx, ny))
+    board[x][y] = 1
+    return dist[n - 1][m - 1]
+ans = []
+possible = False
+for i in range(n):
+    for j in range(m):
+        if board[i][j] == 1:
+            ans.append(bfs(i, j))
+print(*ans )
+print(min(ans))
 
 
 '''
