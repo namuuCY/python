@@ -8,50 +8,28 @@ n, m = list(map(int, input().split()))        # input은 string이라... 설명�
 board = [list(map(int, sys.stdin.readline().rstrip())) for _ in range(n)]
 dx = [1, 0, -1, 0]
 dy = [0, 1, 0, -1]
-Q = deque()
-dist = [[-1]* m for _ in range(n)]
-Q.append((0, 0))
+boQ = deque()
+bxQ = deque()
+boQ.append((0, 0))
+dist = [[0] * m for _ in range(n)]
 dist[0][0] = 1
-
-def bfs(x: int, y: int) -> int:        # x,y의 벽을깨고 bfs
-    board[x][y] = 0
-    Q.append((0, 0))
-    while Q:
-        x, y = Q.popleft()
-        for dir in range(4):
-            nx, ny = x + dx[dir] , y + dy[dir]
-            if 0 <= nx < n and 0 <= ny < m and board[nx][ny] == 0 and dist[nx][ny] > 0:
-                dist[nx][ny] = dist[x][y] + 1
-                Q.append((nx, ny))
-    board[x][y] = 1
-    if dist[n - 1][m - 1] != -1:
-        return dist[n - 1][m - 1]
-    else:
-        return 9999999
-minimum = 9999999
-possible = False
-for i in range(n):
-    for j in range(m):
-        if board[i][j] == 1:
-            minimum = min(minimum, bfs(i, j))
-
-print(minimum)
-
-
-'''
-        if board[nx][ny] == 0 and dist[nx][ny] < 1:
+while boQ:
+    x, y = boQ.popleft()
+    for i in range(4):
+        nx, ny = x + dx[i], y + dy[i]
+        if nx < 0 or nx >= n or ny < 0 or ny >= m:
+            continue
+        if board[nx][ny] == 1:
+            for ox in range(2):
+                if ox == 1 :
+                    break
+                else:       # ox가 0, break한것
+                    
+                    break
+        if board[nx][ny] == 0 and dist[nx][ny] == 0:
             dist[nx][ny] = dist[x][y] + 1
-            Q.append((nx, ny))    
-        if board[nx][ny] == 1 and breakable:
-            for ox in range(2):             # 부술건가 말건가?
-                breakable = True
-                board[nx][ny] = ox
-                if board[nx][ny] == 0:
-                    dist[nx][ny] = dist[x][y] + 1
-                    breakable = False
-                                   # 부쉈으면 더이상 사용 불가능
-                elif dist[nx][ny] < 1:
-                    dist[nx][ny] = dist[x][y] + 1
-                    Q.append((nx, ny))
-                    break   '''
+            x, y
+
+
+
 
