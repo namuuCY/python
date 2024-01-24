@@ -13,7 +13,7 @@ dist = [[-1]* m for _ in range(n)]
 Q.append((0, 0))
 dist[0][0] = 1
 
-def bfs(x: int, y: int) -> None:        # x,y의 벽을깨고 bfs
+def bfs(x: int, y: int) -> int:        # x,y의 벽을깨고 bfs
     board[x][y] = 0
     Q.append((0, 0))
     while Q:
@@ -24,15 +24,18 @@ def bfs(x: int, y: int) -> None:        # x,y의 벽을깨고 bfs
                 dist[nx][ny] = dist[x][y] + 1
                 Q.append((nx, ny))
     board[x][y] = 1
-    return dist[n - 1][m - 1]
-ans = []
+    if dist[n - 1][m - 1] != -1:
+        return dist[n - 1][m - 1]
+    else:
+        return 9999999
+minimum = 9999999
 possible = False
 for i in range(n):
     for j in range(m):
         if board[i][j] == 1:
-            ans.append(bfs(i, j))
-print(*ans )
-print(min(ans))
+            minimum = min(minimum, bfs(i, j))
+
+print(minimum)
 
 
 '''
