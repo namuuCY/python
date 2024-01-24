@@ -1,3 +1,4 @@
-days = [[-1, 1, 0], [-2, 0, 0]]
+from collections import deque
 
-print(min(days))
+Q  = deque([1,3,5,3,6,14,7])
+Q.
