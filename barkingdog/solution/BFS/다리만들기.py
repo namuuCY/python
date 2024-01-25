@@ -5,7 +5,7 @@ n = int(input().rstrip())
 board = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 dx = [1, 0, -1, 0]
 dy = [0, 1, 0, -1]
-vis = [[0]*n for _ in range(n)]
+vis = [[0] * n for _ in range(n)]
 beach = set()
 Q = deque()
 ISnumber = 0
@@ -52,6 +52,7 @@ for beachpoint in beach:
             if board[nx][ny] == 0 and vis[nx][ny] == 0:
                 vis[nx][ny] = 1
                 Q.append((nx, ny, dist + 1))
+print(*beach, sep = ' ')
 print(*ans, sep = ' ')
 
 print(min(ans))
