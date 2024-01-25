@@ -7,7 +7,7 @@ dx = [1, 0, -1, 0]
 dy = [0, 1, 0, -1]
 vis = [[0] * n for _ in range(n)]
 beach = set()
-Q = deque()
+Q = deque()                                                     # 여러번 BFS를 할거라면 Queue를 반드시 비워야하는 작업이 필요함.
 ISnumber = 0
 for i in range(n):          # 섬 구분과 해변가 좌표 체크
     for j in range(n):
