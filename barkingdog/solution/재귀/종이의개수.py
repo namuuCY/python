@@ -31,10 +31,11 @@ def threediv(x1: int, y1: int, n: int):
         else:
             pcount += 1
     else:
-        n1 = n//3                        # 이거 표현법 알아두기
-        for i in range(x1, x1+n, n1):
-            for j in range(y1, y1+n, n1):
-                threediv(i, j, n1)
+        n1 = n // 3
+        if n1 > 0:                              # 이거 표현법....
+            for i in range(x1, x1+n, n1):       # + n1 = 1까지만이라고 써두면 좋다.
+                for j in range(y1, y1+n, n1):
+                    threediv(i, j, n1)
 
 
 '''
