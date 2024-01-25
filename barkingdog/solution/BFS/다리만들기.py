@@ -37,21 +37,21 @@ for beachpoint in beach:
     ISN = board[xx][yy]
     Q.append((xx, yy, 0))
     found = False
-    while Q:
+
+    while Q and not found:
         x, y, dist = Q.popleft()
-        if found:
-            ans.append(dist)
-            break
         for dir in range(4):
             nx, ny = x + dx[dir], y + dy[dir]
             if nx < 0 or ny < 0 or nx >= n or ny >= n:
                 continue
-            if board[nx][ny] != 0 and board[nx][ny] != ISN:
+            if (board[nx][ny] != 0) and (board[nx][ny] != ISN):
                 found = True
+                ans.append(dist)
                 break
             if board[nx][ny] == 0 and vis[nx][ny] == 0:
                 vis[nx][ny] = 1
                 Q.append((nx, ny, dist + 1))
+print(*board, sep = '\n')
 print(*beach, sep = ' ')
 print(*ans, sep = ' ')
 
