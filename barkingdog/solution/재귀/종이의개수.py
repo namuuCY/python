@@ -8,9 +8,9 @@ def threediv(x1: int, y1: int, n: int):
     pnum = sum(paper[i][j]== 1 for i in range(x1, x1 + n) for j in range(y1, y1+ n))
     
     if mnum//(n ** 2) == 1 or znum // (n ** 2) == 1 or pnum//(n ** 2) == 1:
-        mcount += mnum//n
-        zcount += znum//n
-        pcount += pnum//n
+        mcount += mnum//(n ** 2)
+        zcount += znum//(n ** 2)
+        pcount += pnum//(n ** 2)
         return
     
     else:
