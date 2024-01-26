@@ -12,7 +12,7 @@ def func(idx, arr):
     for i in range(n):
         if isused[i] == 1:
             continue
-        else:
+        elif:
             isused[i] = 1
             func(idx + 1, arr + [numbers[i]])
             isused[i] = 0
