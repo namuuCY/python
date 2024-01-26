@@ -1,5 +1,5 @@
 n = int(input())
-
+                    #    시간을 로컬에서 측정할때는 반드시 release모드로 풀고 진행할것
 isusedR = [True] * n           # true면 사용가능으로 바꾸는게 편한듯?
 isusedD = [True] * (2 * n - 1)
 isusedU = [True] * (2 * n - 1)
