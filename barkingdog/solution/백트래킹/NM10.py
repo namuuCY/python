@@ -1,22 +1,24 @@
 n, m = map(int, input().split())
-numbers = list(map(int, input().split()))
-numbers.sort()
-isused = [0] * n
+num = list(map(int, input().split()))
+num.sort()
+isused = [0] * n 
 arr = []
+
 def func(k):
-    tmp = -1  # 마지막 원소 저장
     if k == m:
         print(*arr, sep = ' ')
         return
+    tmp = 0
     for i in range(n):
-        if isused[i] == 0 and tmp <= i:
-            for j in range(i):
+        if isused[i] == 0 and tmp < num[i]:
+            for j in range(i + 1):
                 isused[j] = 1
-            tmp = i
-            arr.append(numbers[i])
+            arr.append(num[i])
+            tmp = num[i]
             func(k + 1)
-            arr.pop()
-            for j in range(i):
+            for j in range(i + 1):
                 isused[j] = 0
-        
+            arr.pop()
+
 func(0)
+            
