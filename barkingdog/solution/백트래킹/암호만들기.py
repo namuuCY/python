@@ -14,17 +14,17 @@ def func(k, st):
     if k == n:
         if acount >= 1 and bcount >= 2:
             print(''.join(arr))
-            return
-    for i in range(st, len(data)):
+        return
+    for i in range(st, len(data)):      # range 안써서 인덱스 오류남..
         if data[i] in adata:
             acount += 1
         else:
             bcount += 1
-        arr.append(data[i])
+        arr.append(data[i])             # 이거 원소 추가하는것도 안햇음
         func(k + 1, i + 1)
         arr.pop()
         if data[i] in adata:
-            acount -= 1
+            acount -= 1                 # 빼기를 안했음..
         else:
             bcount -= 1
 
