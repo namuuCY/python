@@ -11,7 +11,7 @@ count = 0
 def infseven(k, x, y):          # 중복되는거 어떻게 처리할거?   /   한줄이 아닌경우 어떻게 처리할꺼?
     global count                # 임의로 7개 선발후에 인접한거를 찾을까?     계산해보니 48만개정도나옴
     if k == 7:
-        if ans.count('S') >= 4:
+        if ans.count('S') >= 4:     # 지금 이거 ans의 개수와 k의 값이 맞지않는다.
             count += 1
         return
     for i in range(4):
