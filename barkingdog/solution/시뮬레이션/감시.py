@@ -1,4 +1,5 @@
 n, m = map(int, input().split())
+long = max(n, m)
 board = [list(map(int, input().split())) for _ in range(n)]
 cam = []
 count = 0
@@ -9,29 +10,28 @@ ans = 64
 def surveil(i):      # i + 1번째 카메라
     global count, ans
     if i == len(cam):
+        count = 0
         for i1 in range(n):
             for j1 in range(m):
                 if board[i1][j1] == 0:
                     count += 1
         ans = min(ans, count)
-        print(*board, sep = '\n')
-        print()
-        count = 0
+
         return
     for dir in range(4):
         x, y = cam[i]
         sight(board[x][y], dir, x, y)
         for k1 in range(len(tmp)):
             board[tmp[k1][0]][tmp[k1][1]] -= 1
-        tmp1 = tmp
-        tmp.clear()
+        tmp1 = tmp.copy()                       # list1 = list2 라고 놓고 list2 clear하면 list1도 clear됨
+        tmp.clear()                             # 값의 복사가 아닌, 참조가 되기 때문. 따라서 copy를 해야함
         surveil(i + 1)
         for k1 in range(len(tmp1)):
             board[tmp1[k1][0]][tmp1[k1][1]] += 1
         tmp1.clear()
 
 def sight(j, dir, x, y):  #j는 카메라 번호, #dir은 방향()
-    for a in range(1, n):
+    for a in range(1, long):
         nx, ny = x + a * dx[dir % 4], y + a * dy[dir % 4]
         if nx < 0 or ny < 0 or nx >= n or ny >= m:
             break
@@ -40,7 +40,7 @@ def sight(j, dir, x, y):  #j는 카메라 번호, #dir은 방향()
         if board[nx][ny] == 0:
             tmp.append((nx, ny))
     if j == 3 or j == 4 or j == 5:
-        for a in range(1, n):
+        for a in range(1, long):
             nx, ny = x + a * dx[(dir+1) % 4], y + a * dy[(dir+1) % 4]
             if nx < 0 or ny < 0 or nx >= n or ny >= m:
                 break
@@ -49,7 +49,7 @@ def sight(j, dir, x, y):  #j는 카메라 번호, #dir은 방향()
             if board[nx][ny] == 0:
                 tmp.append((nx, ny))
     if j == 2 or j == 4 or j == 5:
-        for a in range(1, n):
+        for a in range(1, long):
             nx, ny = x + a * dx[(dir+2) % 4], y + a * dy[(dir+2) % 4]
             if nx < 0 or ny < 0 or nx >= n or ny >= m:
                 break
@@ -58,7 +58,7 @@ def sight(j, dir, x, y):  #j는 카메라 번호, #dir은 방향()
             if board[nx][ny] == 0:
                 tmp.append((nx, ny))
     if j == 5:
-        for a in range(1, n):
+        for a in range(1, long):
             nx, ny = x + a * dx[(dir+3) % 4], y + a * dy[(dir+3) % 4]
             if nx < 0 or ny < 0 or nx >= n or ny >= m:
                 break
@@ -79,5 +79,5 @@ else:
         for j in range(m):
             if board[i][j] == 0:
                 count += 1
-    print()
+    print(count)
 
