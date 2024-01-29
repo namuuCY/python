@@ -16,7 +16,6 @@ def surveil(i):      # i + 1번째 카메라
                 if board[i1][j1] == 0:
                     count += 1
         ans = min(ans, count)
-
         return
     for dir in range(4):
         x, y = cam[i]
