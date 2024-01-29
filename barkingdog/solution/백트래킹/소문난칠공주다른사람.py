@@ -1,5 +1,3 @@
-from collections import deque
-
 def recur(adj, yds, ans_set):
     if adj == 4 and yds == 0 :
         return
@@ -8,9 +6,10 @@ def recur(adj, yds, ans_set):
     if adj == 6 and yds <= 2:
         return
     if adj == 7:
-        if yds >= 4:
-            ans_set = frozenset()
-            ans_comb.add(ans_set)
+        ans = frozenset(ans_set)
+        if yds >= 4 and ans not in ans_comb:
+            ans_comb.add(ans)
+        return
 
     for j in range(len(ans_set)):
         x, y = ans_set[j]
@@ -24,7 +23,6 @@ def recur(adj, yds, ans_set):
                     recur(adj + 1, yds, ans_set)
                 ans_set.pop()
 
-
 board = [list(map(str, input().rstrip())) for _ in range(5)]
 dx = [1, 0, -1, 0]
 dy = [0, 1, 0, -1]
@@ -32,5 +30,10 @@ vis = [[False]*5 for _ in range(5)]
 ans_comb = set()
 for i in range(5):
     for j in range(5):
+        vis[i][j] = True
         if board[i][j] == 'S':
-            recur()
+            recur(1, 1, [(i, j)])
+        if board[i][j] == 'Y':
+            recur(1, 0, [(i, j)])
+            
+print(len(ans_comb))
