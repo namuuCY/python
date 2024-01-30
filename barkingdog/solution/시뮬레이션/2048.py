@@ -5,8 +5,6 @@ import sys
 n = int(input().rstrip())
 board = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 ans = 0
-# 4진법 써먹어보자.
-# 더하고 당기면 된다.
 
 def lift(dir):
     global board2
@@ -16,12 +14,13 @@ def lift(dir):
             cnt = board2[i].count(0)
             for _ in range(cnt):
                 board2[i].remove(0)
-            for j in range(idx, len(board2[i]) - 2):
+            for j in range(len(board2[i]) - 1):     # len값이 3,2,1 일때도 생각해야함.
                 if board2[i][j] == board2[i][j + 1]:
                     board2[i][j] += board2[i][j + 1]
-                    board2[i].remove(board2[i][j + 1])
-                    if j + 1 == len(board2[i]) - 1:
-                        break           
+                    board2[i][j + 1] = 0
+            cnt = board2[i].count(0)
+            for _ in range(cnt):
+                board2[i].remove(0)
             for _ in range(n - len(board2[i])):
                 board2[i].append(0)
     if dir == 1:
@@ -51,5 +50,7 @@ for trial in range(4**5):
         lift(dir)
 
     ans = max(ans, max(board2[i][j] for i in range(n) for j in range(n)))
+    
+
 
 print(ans)

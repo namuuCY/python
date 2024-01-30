@@ -1,10 +1,9 @@
 from copy import deepcopy
 import sys
+
 n = int(input().rstrip())
 board = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 ans = 0
-
-
 def execute(dir):
     global board2
     if dir == 0:
@@ -23,7 +22,7 @@ def execute(dir):
                         else:
                             tmp.append(board2[i][j])
                             is_next = False
-            for _ in range(n - len(tmp)):
+            for _ in range(n - len(tmp)):       # tmp의 길이만큼 채워야..3
                 tmp.append(0)
             board2[i] = tmp.copy()
     if dir == 1:
@@ -39,12 +38,18 @@ def execute(dir):
         for i in range(n):
             board2[i].reverse()
     if dir == 3:
-        for i in range(n):
-            board2[i].reverse()
-        execute(1)
-        for i in range(n):
-            board2[i].reverse()
+        tmp = deepcopy(board2)
+        board2 = [list(row) for row in zip(*tmp)]
+        execute(2)
+        tmp = deepcopy(board2)
+        board2 = [list(row) for row in zip(*tmp)]
+    
+for tmp in range(4**5):
+    board2 = deepcopy(board)
+    for _ in range(5):
+        dir = tmp % 4
+        tmp //= 4
+        execute(dir)
+    ans = max(ans, max(board2[i][j] for i in range(n) for j in range(n)))
 
-board2 = deepcopy(board)
-execute(1)
-print(*board2, sep = '\n')
+print(ans)
