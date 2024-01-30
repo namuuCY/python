@@ -15,8 +15,8 @@ def rot():
     sticker = new_sticker
     return
 
-def rot2(sticker):
-    global r, c
+def rot2():
+    global r, c, sticker                    
     new_sticker = [list(row) for row in zip(*sticker[::-1])]
     sticker = new_sticker
     r, c = c, r
@@ -46,7 +46,7 @@ for _ in range(k):
                     is_paste = True
                     break
         if is_paste: break
-        rot2(sticker)
+        rot2()
 
 ans = 0
 for i in range(n):
