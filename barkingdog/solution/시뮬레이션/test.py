@@ -1,11 +1,17 @@
 from copy import deepcopy
 import sys
 from math import factorial
+from collections import deque
 
-for i in range(8):
-    print(factorial(13) // (factorial(i)* factorial(13-i)))
-
-
+gear = deque([1,2,3,4,5,6])
+gear.rotate() #시계방향
+print(gear)
+gear.rotate()
+print(gear)
+gear.rotate(-1) #반시계방향
+print(gear)
+gear.rotate(-1)
+print(gear)
 '''
 n = int(input().rstrip())
 board = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
