@@ -1,5 +1,12 @@
 from copy import deepcopy
 import sys
+from math import factorial
+
+for i in range(8):
+    print(factorial(13) // (factorial(i)* factorial(13-i)))
+
+
+'''
 n = int(input().rstrip())
 board = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 ans = 0
@@ -48,3 +55,4 @@ def execute(dir):
 board2 = deepcopy(board)
 execute(1)
 print(*board2, sep = '\n')
+'''
