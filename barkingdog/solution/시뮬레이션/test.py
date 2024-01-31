@@ -4,7 +4,7 @@ from math import factorial
 from collections import deque
 
 gear = deque([1,2,3,4,5,6])
-gear.rotate() #시계방향
+gear.rotate(0) #시계방향
 print(gear)
 gear.rotate()
 print(gear)
