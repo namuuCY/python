@@ -46,13 +46,13 @@ def BFS(x, y, z, c):
             if OOB(nx, ny, nz) or c[nx][ny][nz] == 0 or dist[nx][ny][nz] >= 0:
                 continue
             dist[nx][ny][nz] = dist[x][y][z] + 1
-            Q.append((nx, ny, nz))
+            Q.append((nx, ny, nz))                  ## -1이 계속 나올때와 답이 계속 나올때가 섞이니까 이거 생각
     return dist[4][4][4] if dist[4][4][4] != -1 else 200
 
  # comb의 원소는 board0~4까지 순서대로 섞인거
 ans = 200
 
-for tmp in range(4**5):
+for tmp in range(4**5):                 # 들여쓰기 엄청중요함. 들여쓰기좀 똑바로 볼필요있다.
     tmp1 = tmp
     for plate in range(5):
         dir = tmp1 % 4
@@ -62,11 +62,11 @@ for tmp in range(4**5):
         for c in comb:
             if c[0][0][0] == 0 or c[4][4][4] == 0:
                 continue
-            tmpans = BFS(0,0,0,c)
+            tmpans = BFS(0,0,0,c)       
             if tmpans == 12:            # 12는 무조건 최솟값이니까 이거 발견하면 즉시종료
                 print(12)
                 exit(0)
-            ans = min(ans, tmpans)
+            ans = min(ans, tmpans)      # -1이 계속 나올때와 답이 계속 나올때가 섞이니까 이거 생각
             
 if ans == 200:
     print(-1)
