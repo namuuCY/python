@@ -1,8 +1,28 @@
-import sys
-from itertools import combinations
+trans = list(map(int, input().split()))
+num = list(range(6))
+ansarr = []
+ans = 9999
+def exchange(a, b):
+    trans[a], trans[b] = trans[b], trans[a]
+    return
 
-N = int(sys.stdin.readline())
-stat = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
-sum_stat = [sum(i) + sum(j) for i, j in zip(stat, zip(*stat))]
+def recur(n):
+    global ans
+    if trans == num:
+        if ans > n:
+            ans = n
+            print(n, ansarr)
+        return
+    if n > ans:
+        return
+    if n == 10:
+        return
+    for i in range(5):
+        for j in range(i + 1, 6):
+            ansarr.append((i, j))
+            exchange(i, j)
+            recur(n + 1)
+            exchange(i, j)
+            ansarr.pop()
 
-print(*sum_stat, sep = '\n')
+recur(0)
