@@ -1,4 +1,4 @@
-from itertools import permutations
-import math
-a = list(range(3,3))
-print(a)
+import sys
+
+data = [[240 for _ in range(101)] for _ in range(10001)]
+print(sys.getsizeof(data[0]))
