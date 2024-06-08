@@ -4,7 +4,7 @@ def BinSearch(target):
     st = 0
     ed = N - 1
     while st <= ed:
-        mid = (st + ed) // 2
+        mid = (st + ed + 1) // 2
         if NumberList[mid] == target:
             Answer.append(1)
             return
