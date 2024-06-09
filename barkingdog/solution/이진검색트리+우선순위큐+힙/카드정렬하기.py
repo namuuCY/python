@@ -5,7 +5,7 @@ N = int(input())
 cards = list(map(int, sys.stdin.read().split()))
 
 ans = 0
-
+# 분기와 예외처리 잘 설정.
 if N == 1:
     print(ans)
 
