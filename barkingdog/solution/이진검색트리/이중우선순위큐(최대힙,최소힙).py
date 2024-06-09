@@ -33,14 +33,16 @@ class DualQ:
         return None
     
     def get_min(self):
-        while self.min_heap:
-            min_value = self.min_heap[0]
+        min_value = self.delete_min()
+        if min_value is not None:
+            self.insert(min_value)
             return min_value
         return None
     
     def get_max(self):
-        while self.max_heap:
-            max_value = -self.max_heap[0]
+        max_value = self.delete_max()
+        if max_value is not None:
+            self.insert(max_value)
             return max_value
         return None
     
@@ -62,7 +64,7 @@ for _ in range(int(input().rstrip())):
             else:
                 DQ.delete_min()
 
-    if not DQ.min_heap:
+    if not DQ.counter:
         print('EMPTY')
     else:
         print(DQ.get_max(), DQ.get_min())
