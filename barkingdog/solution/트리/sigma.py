@@ -26,8 +26,3 @@ for i in range(0, 2 * M, 2):
     ans %= 1000000007
 
 print(ans)
-
-
-    
-    
-pow
