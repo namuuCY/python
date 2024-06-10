@@ -10,3 +10,9 @@ cycle       임의의 점에서 자기 자신으로 돌아올수 있는 경우�
 
 acyclic graph   방향상관o
                 cycle이 있는데 자기 자신으로 돌아올수없는경우
+
+완전그래프 complete graph
+    : 모든 node사이의 연결이 존재함
+
+연결 그래프 connected graph
+    : 임의의 두 정점 사이에 경로가 항상 존재함
