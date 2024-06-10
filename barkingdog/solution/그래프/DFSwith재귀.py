@@ -6,7 +6,7 @@
 
 # 일반적으로 우리가 상상하는 DFS의 방식은 재귀 DFS의 방식쪽임.
 
-adj = [[1,2],[2],[3],[0,1,2]]
+'''adj = [[1,2],[2],[3],[0,1,2]]
 vis = [False] * 4
 
 def DFS(cur):
@@ -15,5 +15,31 @@ def DFS(cur):
     for nxt in adj[cur]:
         if vis[nxt]: continue
         DFS(nxt)
+
+DFS(0)'''
+
+'''참고로, 재귀와 같은 순서로 방문하게 하려면 
+    
+    기존 DFS에서처럼 push(append)할때 vis하는게 아닌
+    pop 할때 vis하면 됨'''
+
+
+from collections import deque
+Q = deque()
+
+adj = [[1,2],[2],[3],[0,1,2]]
+vis = [False] * 4
+
+def DFS(a):
+    Q.append(a)
+    while Q:
+        cur = Q.pop()
+        if vis[cur]: continue       # 여기가 제일 중요. 이거 없으면 무한루프 빠진다
+        vis[cur] = True  
+        print(f"Visited node {cur}")
+        for nxt in adj[cur]:
+            if vis[nxt]: continue
+            Q.append(nxt)
+              
 
 DFS(0)
