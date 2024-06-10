@@ -1,0 +1,11 @@
+트리는 그래프의 특별한 구조
+
+    정확히는 무방향이면서 사이클이 없는 연결그래프
+    (undirected acyclic connected graph)
+
+## V개의 정점을 가지면 V-1개의 간선을 가짐
+## 임의의 두 점을 연결하는 simple path가 유일하다.
+
+루트로부터 거리를 depth
+자식이 없는 node를 leaf
+
