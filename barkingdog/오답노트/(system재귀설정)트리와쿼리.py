@@ -3,6 +3,7 @@ import sys
 
 
 ## 아래와 같이 쓰면 재귀깊이를 설정가능. 단 너무 깊으면 메모리초과남.
+## 재귀를 쓸거면 deque를 안써도 된다.
 sys.setrecursionlimit(10**6)
 
 
