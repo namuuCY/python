@@ -6,11 +6,13 @@ N = int(input())
 data = sys.stdin.read().split()
 
 def preDFS(root):
-    
-    if 
+    prelist.append(root)
+    if tree[root][0] != '.': preDFS(tree[root][0])
+    inlist.append(root)
+    if tree[root][1] != '.': preDFS(tree[root][1])
+    postlist.append(root)
 
-
-tree = set()
+tree = dict()
 prelist = []
 inlist = []
 postlist = []
@@ -18,3 +20,7 @@ postlist = []
 for i in range(N):
     tree[data[3 * i]] = (data[3 * i + 1], data[3 * i + 2])
 # '.' 이면 continue인거, 해당값이 
+
+preDFS('A')
+
+print(''.join(prelist) + '\n' + ''.join(inlist) + '\n' + ''.join(postlist) + '\n' )
