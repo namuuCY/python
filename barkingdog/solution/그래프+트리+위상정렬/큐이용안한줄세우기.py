@@ -1,6 +1,6 @@
 import sys
 
-def toplist():
+def topsort():
     
     for cur in id0:
         #ans.append(cur)
@@ -30,6 +30,6 @@ for j in range(1, N + 1):
     if indeg[j] != 0: continue
     id0.append(j)
 
-toplist()
+topsort()
 print(*id0, sep=' ')
 #print(*ans, sep=' ')

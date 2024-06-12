@@ -1,7 +1,7 @@
 from collections import deque
 import sys
 
-def toplist():
+def topsort():
     
     while id0:
         cur = id0.popleft()
@@ -32,7 +32,7 @@ for j in range(1, N + 1):
     if indeg[j] != 0: continue
     id0.append(j)
 
-toplist()
+topsort()
 
 print(*ans, sep=' ')
 
