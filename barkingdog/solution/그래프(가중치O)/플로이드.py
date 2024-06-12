@@ -21,7 +21,10 @@ for s in range(1, n + 1):
 for k in range(1, n + 1):
     for i in range(1, n + 1):
         for j in range(1, n + 1):
-            adj[i][j] = min(adj[i][j], adj[i][k] + adj[k][j])
+            if adj[i][j] < adj[i][k] + adj[k][j]: continue
+            adj[i][j] = adj[i][k] + adj[k][j]
+            
+            # adj[i][j] = min(adj[i][j], adj[i][k] + adj[k][j])
 
 for i2 in range(1, n + 1):
     ans = []
