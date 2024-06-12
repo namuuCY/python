@@ -22,13 +22,13 @@ for _ in range(n):
             
         else:
             stack.append(k)
-            
+           
 
     else:
         stack.append(k)
-        
+    print(stack, count)
 
-print(count)
+print(f'final: {count}')
         
             
 
