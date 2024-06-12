@@ -3,7 +3,7 @@ import sys
 def toplist():
     
     for cur in id0:
-
+        #ans.append(cur)
         if not adj[cur]: continue
 
         for nxt in adj[cur]:
@@ -15,7 +15,7 @@ def toplist():
     return
 
 N, M = map(int, input().split())
-
+# ans = []
 adj = [[] for _ in range(N + 1)]
 indeg = [0 for _ in range(N + 1)]
 id0 = []
@@ -31,5 +31,5 @@ for j in range(1, N + 1):
     id0.append(j)
 
 toplist()
-
 print(*id0, sep=' ')
+#print(*ans, sep=' ')
