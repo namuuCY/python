@@ -1,50 +1,63 @@
-from itertools import permutations
-from collections import deque
 import sys
+from collections import deque
 
-def scoremachine(stat, runner):
-    global score, outcount, hitteridx
-    if stat == 0:
-        outcount += 1
-        hitteridx += 1
-        return
-    elif stat == 4:
-        score += sum(runner) + 1
-        runner = [0] * 3
-        hitteridx += 1
-        return
-    else:
-        for idx in range(3 - stat, 3):
-            if runner[idx]:
-                score += 1
-                runner[idx] = 0
-        for idx in range(0, 3 - stat):
-            runner[idx + stat] = 1
-            runner[idx] = 0
-        runner[stat - 1] = 1
-        hitteridx += 1    
-        return
+sys.setrecursionlimit(10**6)
 
-inning = int(input())
-stat = [list(map(int, sys.stdin.readline().split())) for _ in range(inning)] 
+N = int(input())
 
-comb = permutations(range(1,9), 8)
+hit = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
+isused = [False for _ in range(9)]
+running = deque()
 ans = 0
-
-for c in comb:
-    hitteridx = 0
+order = []
+def run(): # 1이닝 통틀어서
+    global ans
+    idx = 0
     score = 0
-    players = list(c)
-    players.insert(3, 0)
-    for i in range(inning):
-        runner = [0] * 3
+
+    for inn in range(N):
         outcount = 0
-        while True:
-            if outcount == 3:
-                break
-            scoremachine(stat[i][players[hitteridx % 9]], runner)
-        if outcount == 3:
-            continue
-    ans = max(score, ans)    
+        while running:
+            running.pop()
+
+        while outcount < 3:
+            r = hit[inn][order[idx % 9]]
+            if r == 4:
+                while running:
+                    running.pop()
+                    score += 1
+                score += 1
+            elif r > 0:
+                for i in range(len(running)):
+                    if running[i] + r >= 4:
+                        running.popleft()
+                        score += 1
+                    else: running[i] += r
+                running.append(r)
+            else:
+                outcount += 1
+            idx += 1
+    ans = max(ans, score)
+
+def brute(k):
+    if k == 9:
+        run()
+        return
+    
+    if k == 3:
+        isused[k] = True
+        order.append(k)
+        brute(k + 1)
+    
+    for i in range(9):
+        if isused[i]: continue
+        isused[i] = True
+        order.append(i)
+        brute(k + 1)
+        order.pop()
+        isused[i] = False
+
+brute(0)
+
 print(ans)
