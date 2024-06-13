@@ -1,16 +1,14 @@
 import sys
 from collections import deque
 
-sys.setrecursionlimit(10**6)
 
 N = int(input())
 
 hit = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
 isused = [False for _ in range(9)]
-running = deque()
 ans = 0
-order = []
+order = [0 for _ in range(9)]
 def run(): # 1이닝 통틀어서
     global ans
     idx = 0
@@ -18,26 +16,26 @@ def run(): # 1이닝 통틀어서
 
     for inn in range(N):
         outcount = 0
-        while running:
-            running.pop()
-
+        running = [False for _ in range(4)]            
         while outcount < 3:
-            r = hit[inn][order[idx % 9]]
+            r = hit[inn][order[idx]]
             if r == 4:
-                while running:
-                    running.pop()
-                    score += 1
-                score += 1
-            elif r > 0:
-                for i in range(len(running)):
-                    if running[i] + r >= 4:
-                        running.popleft()
-                        score += 1
-                    else: running[i] += r
-                running.append(r)
+                score += 1 + running.count(True)
+                running = [False for _ in range(4)]            
+            elif 1<= r < 4:
+                n_running = [False for _ in range(4)]
+                for i in range(3, 0, -1):
+                    if running[i]:
+                        if i + r > 3:
+                            score += 1
+                        else:
+                            n_running[i + r] = True
+                n_running[r] = True
+                running = n_running
             else:
                 outcount += 1
             idx += 1
+            idx %= 9
     ans = max(ans, score)
 
 def brute(k):
@@ -46,16 +44,16 @@ def brute(k):
         return
     
     if k == 3:
-        isused[k] = True
-        order.append(k)
+        order[3] = 0
+        isused[0] = True
         brute(k + 1)
-    
-    for i in range(9):
+        return
+
+    for i in range(1, 9):
         if isused[i]: continue
         isused[i] = True
-        order.append(i)
+        order[k] = i
         brute(k + 1)
-        order.pop()
         isused[i] = False
 
 brute(0)
